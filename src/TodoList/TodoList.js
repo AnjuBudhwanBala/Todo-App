@@ -10,7 +10,7 @@ const TodoList = () => {
     setTask(event.target.value);
   };
 
-  //Add Task
+  //create Task
   const addTaskHandler = e => {
     e.preventDefault();
     if (task.trim() !== "") {
@@ -43,7 +43,6 @@ const TodoList = () => {
       <form onSubmit={addTaskHandler}>
         <input
           type="text"
-          id="mainInput"
           placeholder="Add Task"
           onChange={changeHandler}
           value={task}
