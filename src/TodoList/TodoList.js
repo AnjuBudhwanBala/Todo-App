@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Todo.css";
+import "./TodoList.css";
 
-const Todo = () => {
+const TodoList = () => {
   const [task, setTask] = useState("");
   const [todoList, setTodoList] = useState([]);
 
@@ -11,7 +11,8 @@ const Todo = () => {
   };
 
   //Add Task
-  const addTaskHandler = () => {
+  const addTaskHandler = e => {
+    e.preventDefault();
     if (task.trim() !== "") {
       setTodoList(todoList.concat(task));
       //to clear Input field
@@ -39,17 +40,19 @@ const Todo = () => {
 
   return (
     <div className="Todo">
-      <input
-        type="text"
-        id="mainInput"
-        placeholder="Add Task"
-        onChange={changeHandler}
-        value={task}
-      />
-      <button onClick={addTaskHandler}>Add </button>
+      <form onSubmit={addTaskHandler}>
+        <input
+          type="text"
+          id="mainInput"
+          placeholder="Add Task"
+          onChange={changeHandler}
+          value={task}
+        />
+        <button>Add </button>
+      </form>
       <ul>{taskList}</ul>
     </div>
   );
 };
 
-export default Todo;
+export default TodoList;
