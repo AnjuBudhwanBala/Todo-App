@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import List from "./List";
 import "./TodoList.css";
 
 const TodoList = () => {
@@ -13,6 +14,7 @@ const TodoList = () => {
   //create Task
   const addTaskHandler = e => {
     e.preventDefault();
+
     if (task.trim() !== "") {
       setTodoList(todoList.concat(task));
       //to clear Input field
@@ -29,15 +31,6 @@ const TodoList = () => {
     setTodoList(newArr);
   };
 
-  //task mapping
-  const taskList = todoList.map((item, index) => {
-    return (
-      <li key={index} onClick={removeHandler.bind(this, index)}>
-        {item}
-      </li>
-    );
-  });
-
   return (
     <div className="Todo">
       <form onSubmit={addTaskHandler}>
@@ -49,7 +42,12 @@ const TodoList = () => {
         />
         <button>Add </button>
       </form>
-      <ul>{taskList}</ul>
+      {useMemo(
+        () => (
+          <List todoList={todoList} click={removeHandler} />
+        ),
+        [todoList]
+      )}
     </div>
   );
 };
