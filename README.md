@@ -1,6 +1,6 @@
 # Create Todo App using React Hooks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).To know how it works you can read from here https://medium.com/@anjubudhwan/create-todo-app-using-react-hooks-1048f74bd4a7
 
 ## Available Scripts
 
